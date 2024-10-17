@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Start you Daily Check-in
+{% endblock title %}
+
+{% block content %}
+    <h1>Start you Daily Check-in</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock content %}
