@@ -4,8 +4,9 @@ from .models import CheckIn
 class CheckInForm(forms.ModelForm):
     class Meta:
         model = CheckIn
-        fields = ['title', 'journal', 'teeth', 'sleep', 'skincare', 'gym_hours', 'coding_hours', 'pages_read']
+        fields = ['datetime', 'title', 'journal', 'teeth', 'sleep', 'skincare', 'gym_hours', 'coding_hours', 'pages_read']
         widgets = {
+            'datetime': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             'journal': forms.Textarea(attrs={'cols': 80, 'rows': 10}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'teeth': forms.NumberInput(attrs={'class': 'form-control'}),

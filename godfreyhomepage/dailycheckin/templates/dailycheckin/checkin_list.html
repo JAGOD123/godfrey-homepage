@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Checkins
+{% endblock title %}
+
+{% block content %}
+<section>
+    <a href="{% url 'dailycheckin:checkin' %}">
+        <strong>Daily Checkin</strong>
+    </a>
+</section>
+
+
+<section>
+    {% for checkin in checkins %}
+        <article class="post">
+            <h2>
+                <a href="{% url 'dailycheckin:checkin_detail' date_slug=checkin.datetime|date:"Y-m-d" %}">
+                    {{ checkin.title }}
+                </a>
+            </h2>
+            <p>{{ checkin.datetime }}</p>
+        </article>
+    {% endfor %}
+</section>
+{% endblock content %}

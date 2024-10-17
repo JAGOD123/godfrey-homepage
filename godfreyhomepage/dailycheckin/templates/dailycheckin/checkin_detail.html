@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ checkin.title }}
+{% endblock title %}
+
+{% block content %}
+    <section>
+        <h1>{{ checkin.title }}</h1>
+        <p><strong>Date:</strong> {{ checkin.datetime|date:"F j, Y, g:i a" }}</p>
+        <p><strong>Journal Entry:</strong> {{ checkin.journal }}</p>
+        <p><strong>Teeth Brushed:</strong> {{ checkin.teeth }}</p>
+        <p><strong>Sleep (Hours):</strong> {{ checkin.sleep }}</p>
+        <p><strong>Skincare Done:</strong> {{ checkin.skincare }}</p>
+        <p><strong>Gym Hours:</strong> {{ checkin.gym_hours }}</p>
+        <p><strong>Coding Hours:</strong> {{ checkin.coding_hours }}</p>
+        <p><strong>Pages Read:</strong> {{ checkin.pages_read }}</p>
+
+        
+        
+    </section>
+{% endblock content %}
