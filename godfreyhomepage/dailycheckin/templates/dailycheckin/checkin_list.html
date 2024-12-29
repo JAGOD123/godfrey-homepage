@@ -5,14 +5,14 @@
 {% endblock title %}
 
 {% block content %}
-<section>
-    <a href="{% url 'dailycheckin:checkin' %}">
+<section class="p-2">
+    <a  href="{% url 'dailycheckin:checkin' %}">
         <strong>Daily Checkin</strong>
     </a>
 </section>
 
 
-<section>
+<section class="p-2">
     {% for checkin in checkins %}
         <article class="post">
             <h2>

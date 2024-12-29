@@ -4,31 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <script src="{% static 'js/main.js' %}" defer></script>
     <title>
-        {% block title %}
-            Django App
-        {% endblock %}
+        {% block title %}{% endblock %}
     </title>
 </head>
 <body>
-    <nav>
-        <a href="/">
-            <span role="img" aria-label="Home" title="Home">🏠</span>
-        </a> | 
-        <a href="/about">
-            <span role="img" aria-label="About" title="About">❓</span>
-        </a> | 
-        <a href="{% url 'posts:list' %}">
-            <span role="img" aria-label="Posts" title="Posts">📰</span>
-        </a> | 
-        <a href="{% url 'users:register' %}">
-            <span role="img" aria-label="User Registration" title="User Registration">🚀</span>
-        </a> |
-        <a href="{% url 'dailycheckin:checkin_list' %}">
-            <span role="img" aria-label="Daily Checkin" title="Daily Checkin">👓</span>
-        </a>
+    <nav class="nav nav-tabs bg-info justify-content-center">
+        <li class="nav item">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
+        </li>
+        <li class="nav item">
+            <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="/about">About</a>
+        </li>
+        <li class="nav item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'list' %}active{% endif %}" href="{% url 'posts:list' %}">Posts</a> 
+        </li>
+        <li class="nav item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'register' %}active{% endif %}" href="{% url 'users:register' %}">Users</a>
+        </li>
+        <li class="nav item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'checkin_list' %}active{% endif %}"  href="{% url 'dailycheckin:checkin_list' %}">Daily Checkin</a>
+        </li>
     </nav>
     <main>
         {% block content%}

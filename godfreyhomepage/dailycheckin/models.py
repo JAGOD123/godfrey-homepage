@@ -4,6 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.text import slugify
 
 
+
 # Create your models here.
 class CheckIn(models.Model):
     #TODO DEBUG: CHANGE THIS BACK ONCE THEY SHOULDNT NEED TO INPUT THE DATE

@@ -5,10 +5,57 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Start you Daily Check-in</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container mt-5 pb-4">
+        <h1>Start you Daily Check-in</h1>
+        <form method="post">
+
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_datetime" class="form-label">Date and Time</label>
+                {{ form.datetime }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                {{ form.title }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_journal" class="form-label">Journal</label>
+                <textarea name="journal" id="id_journal" class="form-control" cols="80" rows="5">{{ form.journal.value }}</textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_teeth" class="form-label">Teeth</label>
+                {{ form.teeth }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_sleep" class="form-label">Sleep (hours)</label>
+                {{ form.sleep }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_skincare" class="form-label">Skincare (hours)</label>
+                {{ form.skincare }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_gym_hours" class="form-label">Gym Hours</label>
+                {{ form.gym_hours }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_coding_hours" class="form-label">Coding Hours</label>
+                {{ form.coding_hours }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_pages_read" class="form-label">Pages Read</label>
+                {{ form.pages_read }}
+            </div>
+            <button class="justify-content-center" type="submit">Submit</button>
+        </div>
+        </form>
+    </div>
 {% endblock content %}
