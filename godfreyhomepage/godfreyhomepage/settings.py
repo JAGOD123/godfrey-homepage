@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'posts',
     'users',
     'dailycheckin',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
